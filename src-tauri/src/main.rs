@@ -3,13 +3,11 @@
 
 #[tauri::command]
 async fn long_task(number: i32) -> Result<i32, String> {
-    tokio::task::spawn_blocking(move || {
-        std::thread::sleep(std::time::Duration::from_secs(20));
-        Ok(number)
-    })
-    .await
-    .map_err(|join_error| join_error.to_string())?
-    .map_err(|e: String| e)
+    // Simulate a long task. If the browser reloads while this is running,
+    // then its response will go to the "wrong" browser
+    // instance/webview/not sure what to call it and cause a crash.
+    std::thread::sleep(std::time::Duration::from_secs(20));
+    return Ok(number);
 }
 
 fn main() {

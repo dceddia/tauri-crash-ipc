@@ -12,7 +12,6 @@
       // that was started before the reload and finishes AFTER the reload
       // will cause the app to crash.
       const result = await invoke("long_task", { number: number++ });
-      console.log(result);
     }, 1000);
   });
 </script>
