@@ -1,7 +1,8 @@
-# Tauri + Svelte + Typescript
+# Tauri stale IPC response crash
 
-This template should help get you started developing with Tauri, Svelte and TypeScript in Vite.
-
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
+1. Clone this repo
+2. pnpm install
+3. pnpm tauri dev
+4. When the app starts, it kicks off a tauri command that will finish in 20 seconds.
+5. Within that 20 seconds, modify main.ts and save (causing a reload)
+6. When the 20 second command finishes, the app will crash.
